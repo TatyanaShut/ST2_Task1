@@ -12,7 +12,7 @@
 
 
 
-@interface ListViewController ()
+@interface ListViewController () <UIGestureRecognizerDelegate>
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) NSDictionary* imagesDiscription;
 @property (weak, nonatomic) UILabel* descriptionLabel;
@@ -84,6 +84,8 @@
     
     [_scrollView setContentSize:CGSizeMake(0, self.view.frame.size.height*10)];
     
+    UITapGestureRecognizer* tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleSingleTap:)];
+    [self.scrollView addGestureRecognizer:tapGesture];
     
     NSInteger counter = 0;
     NSInteger distance = self.view.frame.size.height/3;
@@ -99,10 +101,7 @@
         descriptionLabel.textColor = [UIColor whiteColor];
         descriptionLabel.font = [UIFont fontWithName:@"TrebuchetMS-Bold" size:20];
         descriptionLabel.text = [self.imagesDiscription objectForKey:i];
-        UITapGestureRecognizer *singleFingerTap =
-        [[UITapGestureRecognizer alloc] initWithTarget:self
-                                                action:@selector(handleSingleTap:)];
-        [view addGestureRecognizer:singleFingerTap];
+        
         [_scrollView addSubview:view];
         [_scrollView addSubview:descriptionLabel];
         view.frame = imageRect;
