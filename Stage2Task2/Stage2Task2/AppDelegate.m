@@ -16,10 +16,13 @@
 
 @implementation AppDelegate
 
-
+//rgb(176,224,230)
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc]initWithFrame: [[UIScreen mainScreen]bounds]];
-    self.window.backgroundColor = [UIColor whiteColor];
+    self.window.backgroundColor = [UIColor colorWithRed:176.0f/255.0f
+                                                  green:224.0f/255.0f
+                                                   blue:230.0f/255.0f
+                                                  alpha:1.0f];
     ViewController *vc = [[ViewController alloc]init];
     UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:vc];
     [self.window setRootViewController:nvc];

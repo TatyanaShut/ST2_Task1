@@ -96,7 +96,8 @@
         CustomView *view = [[CustomView alloc] initWithImage:image andDescription:[self.imagesDiscription objectForKey:i]];
         UILabel* descriptionLabel = [[UILabel alloc] initWithFrame:descriptionRect];
         
-        descriptionLabel.textColor = [UIColor redColor];
+        descriptionLabel.textColor = [UIColor whiteColor];
+        descriptionLabel.font = [UIFont fontWithName:@"TrebuchetMS-Bold" size:20];
         descriptionLabel.text = [self.imagesDiscription objectForKey:i];
         UITapGestureRecognizer *singleFingerTap =
         [[UITapGestureRecognizer alloc] initWithTarget:self

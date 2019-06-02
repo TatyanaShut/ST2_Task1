@@ -45,7 +45,7 @@
     [self.navigationController pushViewController:lVc animated:YES];
 }
 - (void) handlePan:(UIPanGestureRecognizer*) recognizer {
-    self.title = self.registeredCustomView.urlDescription;
+    
     UIView* view = [self.view hitTest:[recognizer locationInView:self.view] withEvent:nil];
     if (![view isEqual:self.view]) {
         
@@ -61,6 +61,15 @@
 }
 
 - (void)handleTap:(UITapGestureRecognizer *)recognizer {
+    
+    UIView* view = [self.view hitTest:[recognizer locationInView:self.view] withEvent:nil];
+    if (![view isEqual:self.view]) {
+        self.registeredCustomView = [self.view.subviews objectAtIndex:[self.view.subviews indexOfObject:view]];
+        self.title = self.registeredCustomView.urlDescription;
+
+    } else {
+        self.title = @"Application";
+    }
     
 }
 @end
