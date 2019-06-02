@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CustomView.h"
 
 @interface ViewController : UIViewController
-
-
+@property (weak, nonatomic) CustomView* registeredCustomView;
 @end
+
 
