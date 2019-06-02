@@ -29,7 +29,6 @@
    }
 - (void)rightBarButtonItemClick:(id)send {
     ListViewController *vc = [[ListViewController alloc] init];
-    
     [self.navigationController pushViewController:vc animated:YES];
     
 }
