@@ -55,7 +55,7 @@
             view.center = location;
         }
         view.center = CGPointMake(view.center.x + translation.x, view.center.y +translation.y);
-        
+        [view.superview bringSubviewToFront: view];
         [recognizer setTranslation:CGPointZero inView:view.superview];
     }
 }
